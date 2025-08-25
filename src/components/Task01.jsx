@@ -1,4 +1,5 @@
-function Root() {
+// JSX
+function Task01() {
     const tasks = ['Помыть посуду', 'Сделать домашнее задание', 'Прочитать книгку'];
 
     return (
@@ -13,4 +14,4 @@ function Root() {
     );
 }
 
-export default Root;
+export default Task01;
