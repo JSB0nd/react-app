@@ -50,7 +50,7 @@ export function Counter() {
 export function Spa() {
     const [page, setPage] = useState("home");
     const [postId, setPostId] = useState("");
-    const [postData, setPostData] = useState([null]);
+    const [postData, setPostData] = useState(null);
 
     // примеры данных
     const posts = [
@@ -81,15 +81,17 @@ export function Spa() {
                            type="number"
                            min={1}
                            max={5}
-                           onChange={(e) => setPostId(e.target.value)}
+                           onChange={(e) => setPostId(e.target.value.trim())}
                     />
                     <button onClick={fetchPost}>Показать пост</button>
 
-                    {postData && (
+                    {postData ? (
                         <div>
                             <h2>{postData.title}</h2>
                             <p>{postData.body}</p>
                         </div>
+                    ) : postId && (
+                        <p>Такого поста не найдено</p>
                     )}
                 </>
             )}
